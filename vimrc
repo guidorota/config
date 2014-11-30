@@ -86,15 +86,18 @@ command Wq wq
 command W w
 command Q q
 
+" Add newlines in normal mode
+nnoremap <CR> io<Esc>
+
 " Reflow paragraph
 nnoremap Q gqap
 
-" Remap CtrlP
+" CtrlP
 let g:ctrlp_map = '<c-m>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " NERDTree
-map <C-n> :NERDTreeToggle<CR>
+nnoremap <C-n> :NERDTreeToggle<CR>
 
 " Map key to toggle opt
 function MapToggle(key, opt)
@@ -106,3 +109,7 @@ command -nargs=+ MapToggle call MapToggle(<f-args>)
 
 " Assign paste toggle to ctrl-p
 MapToggle <c-p> paste
+
+" Preserve enter behaviour in command line windows
+autocmd CmdwinEnter * nnoremap <CR> <CR>
+autocmd BufReadPost quickfix nnoremap <CR> <CR>
