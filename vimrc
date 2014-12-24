@@ -114,3 +114,6 @@ MapToggle <c-p> paste
 " Preserve enter behaviour in command line windows
 autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
+
+" Disable scratch preview window for completion
+set completeopt-=preview
