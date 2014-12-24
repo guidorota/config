@@ -11,6 +11,7 @@ Plugin 'gmarik/Vundle.vim'
 Plugin 'bronson/vim-visual-star-search'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
+Plugin 'majutsushi/tagbar'
 Plugin 'Shougo/neocomplete.vim'
 Plugin 'scrooloose/nerdtree'
 
@@ -92,7 +93,7 @@ nnoremap <CR> io<Esc>
 " Reflow paragraph
 nnoremap Q gqap
 
-" CtrlP
+" Remap CtrlP
 let g:ctrlp_map = '<c-m>'
 let g:ctrlp_cmd = 'CtrlP'
 
