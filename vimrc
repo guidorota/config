@@ -2,6 +2,9 @@
 set nocompatible
 filetype off " Required by Vundle
 
+" Set <leader> to , (comma)
+let mapleader = ","
+
 " Vundle
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
@@ -41,7 +44,7 @@ set formatoptions+=t
 set colorcolumn=80
 highlight colorcolumn ctermbg=white
 
-" Fix backspace
+" Fix backspace behaviour
 set backspace=2
 
 " Line numbers
@@ -77,9 +80,6 @@ hi statusline ctermfg=black
 au InsertEnter * hi statusline ctermfg=darkcyan
 au InsertChange * hi statusline ctermfg=darkcyan
 au InsertLeave * hi statusline ctermfg=black
-
-" No timeout when pressing ESC to exit insert mode
-set timeoutlen=0
 
 " Convenience bindings
 command WQ wq
@@ -117,3 +117,13 @@ autocmd BufReadPost quickfix nnoremap <CR> <CR>
 
 " Disable scratch preview window for completion
 set completeopt-=preview
+
+" vim-go settings
+let g:go_fmt_fail_silently = 1
+
+" vim-go mappings
+
+au FileType go nmap <Leader>i <Plug>(go-info)
+au FileType go nmap <Leader>d <Plug>(go-doc-vertical)
+au FileType go nmap <Leader>b <Plug>(go-build)
+au FileType go nmap <Leader>g <Plug>(go-def-vertical)
