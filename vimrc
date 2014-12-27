@@ -94,7 +94,7 @@ nnoremap <CR> io<Esc>
 nnoremap Q gqap
 
 " Remap CtrlP
-let g:ctrlp_map = '<c-m>'
+let g:ctrlp_map = '<c-l>'
 let g:ctrlp_cmd = 'CtrlP'
 
 " NERDTree
