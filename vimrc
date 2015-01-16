@@ -15,7 +15,7 @@ Plugin 'bronson/vim-visual-star-search'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
-Plugin 'Shougo/neocomplete.vim'
+Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 
 call vundle#end()            " Required by Vundle
@@ -100,17 +100,6 @@ let g:ctrlp_cmd = 'CtrlP'
 " NERDTree
 nnoremap <C-n> :NERDTreeToggle<CR>
 
-" Map key to toggle opt
-function MapToggle(key, opt)
-    let cmd = ':set '.a:opt.'! \| set '.a:opt."?\<CR>"
-    exec 'nnoremap '.a:key.' '.cmd
-    exec 'inoremap '.a:key." \<C-O>".cmd
-endfunction
-command -nargs=+ MapToggle call MapToggle(<f-args>)
-
-" Assign paste toggle to ctrl-p
-MapToggle <c-p> paste
-
 " Preserve enter behaviour in command line windows
 autocmd CmdwinEnter * nnoremap <CR> <CR>
 autocmd BufReadPost quickfix nnoremap <CR> <CR>
@@ -122,10 +111,12 @@ set completeopt-=preview
 let g:go_fmt_fail_silently = 1
 
 " vim-go mappings
-
 au FileType go nmap <Leader>i <Plug>(go-info)
 au FileType go nmap <Leader>dv <Plug>(go-doc)
 au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>b <Plug>(go-build)
 au FileType go nmap <Leader>g <Plug>(go-def)
 au FileType go nmap <Leader>gv <Plug>(go-def-vertical)
+
+" Default YCM compile flags
+let g:ycm_global_ycm_extra_conf = "~/config/ycm_extra_conf.py"
