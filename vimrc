@@ -122,5 +122,5 @@ au FileType go nmap <Leader>gv <Plug>(go-def-vertical)
 au FileType c nnoremap <Leader>gg :YcmCompleter GoTo<CR>
 
 " YouCompleteMe options
-let g:ycm_min_num_of_chars_for_completion = 1000
+let g:ycm_auto_trigger = 0
 let g:ycm_global_ycm_extra_conf = "~/config/ycm_extra_conf.py"
