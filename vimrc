@@ -93,6 +93,9 @@ nnoremap <CR> io<Esc>
 " Reflow paragraph
 nnoremap Q gqap
 
+" Quick window shortcuts
+nnoremap <Leader>w <c-w>
+
 " Remap CtrlP
 let g:ctrlp_map = '<c-l>'
 let g:ctrlp_cmd = 'CtrlP'
@@ -119,7 +122,7 @@ au FileType go nmap <Leader>gg <Plug>(go-def)
 au FileType go nmap <Leader>gv <Plug>(go-def-vertical)
 
 " c mappings
-au FileType c nnoremap <Leader>gg :YcmCompleter GoTo<CR>
+au FileType c nnoremap <Leader>gg :YcmCompleter GoToDefinition<CR>
 
 " YouCompleteMe options
 let g:ycm_auto_trigger = 0
