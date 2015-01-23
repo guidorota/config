@@ -87,14 +87,12 @@ command Wq wq
 command W w
 command Q q
 
-" Add newlines in normal mode
-nnoremap <CR> io<Esc>
-
 " Reflow paragraph
 nnoremap Q gqap
 
-" Quick window shortcuts
+" Home-row shortcuts
 nnoremap <Leader>w <c-w>
+nnoremap <Leader>s :w<CR>
 
 " Remap CtrlP
 let g:ctrlp_map = '<c-l>'
