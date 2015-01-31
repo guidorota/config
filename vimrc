@@ -113,7 +113,7 @@ let g:go_fmt_fail_silently = 1
 
 " vim-go mappings
 au FileType go nmap <Leader>i  <Plug>(go-info)
-au FileType go nmap <Leader>dv <Plug>(go-doc)
+au FileType go nmap <Leader>d  <Plug>(go-doc)
 au FileType go nmap <Leader>dv <Plug>(go-doc-vertical)
 au FileType go nmap <Leader>b  <Plug>(go-build)
 au FileType go nmap <Leader>gg <Plug>(go-def)
