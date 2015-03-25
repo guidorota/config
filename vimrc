@@ -125,3 +125,4 @@ au FileType c nnoremap <Leader>gg :YcmCompleter GoToDefinition<CR>
 " YouCompleteMe options
 let g:ycm_auto_trigger = 0
 let g:ycm_global_ycm_extra_conf = "~/config/ycm_extra_conf.py"
+let g:EclimCompletionMethod = 'omnifunc'
