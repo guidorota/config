@@ -15,7 +15,6 @@ Plugin 'bronson/vim-visual-star-search'
 Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
-Plugin 'Valloric/YouCompleteMe'
 Plugin 'scrooloose/nerdtree'
 
 call vundle#end()            " Required by Vundle
@@ -122,7 +121,3 @@ au FileType go nmap <Leader>gv <Plug>(go-def-vertical)
 " c mappings
 au FileType c nnoremap <Leader>gg :YcmCompleter GoToDefinition<CR>
 
-" YouCompleteMe options
-let g:ycm_auto_trigger = 0
-let g:ycm_global_ycm_extra_conf = "~/config/ycm_extra_conf.py"
-let g:EclimCompletionMethod = 'omnifunc'
