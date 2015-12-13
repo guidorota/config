@@ -1,0 +1,13 @@
+#!/bin/bash
+
+case $1 in
+    start)
+    VBoxManage startvm ubuntu --type headless
+    ;;
+    stop)
+    VBoxManage controlvm ubuntu poweroff
+    ;;
+    *)
+    echo "vm [start|stop]"
+    ;;
+esac

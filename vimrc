@@ -16,6 +16,7 @@ Plugin 'kien/ctrlp.vim'
 Plugin 'fatih/vim-go'
 Plugin 'majutsushi/tagbar'
 Plugin 'scrooloose/nerdtree'
+Plugin 'Keithbsmiley/swift.vim'
 
 call vundle#end()            " Required by Vundle
 filetype plugin indent on    " Required by Vundle
