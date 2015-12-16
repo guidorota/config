@@ -15,6 +15,12 @@ export DOCKER_TLS_VERIFY=1
 export DOCKER_HOST=tcp://192.168.59.103:2376
 export DOCKER_CERT_PATH=/Users/sidewinder/.boot2docker/certs/boot2docker-vm
 
+# General aliases
 alias op='open'
 alias ll='ls -lh'
 alias lla='ls -lha'
+
+# Git aliases
+alias ga='git add'
+alias gs='git status'
+alias gc='git commit'
