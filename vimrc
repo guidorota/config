@@ -71,6 +71,8 @@ set softtabstop=4
 set tabstop=4
 set shiftwidth=4
 set expandtab
+" HTML only
+autocmd FileType html setlocal shiftwidth=2 tabstop=2 softtabstop=4
 
 " Set default statusline color to green when entering Vim
 hi statusline ctermbg=white
@@ -121,4 +123,3 @@ au FileType go nmap <Leader>gv <Plug>(go-def-vertical)
 
 " c mappings
 au FileType c nnoremap <Leader>gg :YcmCompleter GoToDefinition<CR>
-

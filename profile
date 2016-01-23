@@ -19,8 +19,5 @@ export DOCKER_CERT_PATH=/Users/sidewinder/.boot2docker/certs/boot2docker-vm
 alias op='open'
 alias ll='ls -lh'
 alias lla='ls -lha'
-
-# Git aliases
-alias ga='git add'
-alias gs='git status'
-alias gc='git commit'
+alias ..='cd ..'
+alias ../..='cd ../..'
