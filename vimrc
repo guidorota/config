@@ -123,3 +123,6 @@ au FileType go nmap <Leader>gv <Plug>(go-def-vertical)
 
 " c mappings
 au FileType c nnoremap <Leader>gg :YcmCompleter GoToDefinition<CR>
+
+" Ignore case by default when searching, except when capital letters are used
+set smartcase
