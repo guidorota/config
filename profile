@@ -20,3 +20,5 @@ alias ../..='cd ../..'
 alias dl='cd ~/Downloads'
 
 bindkey -v
+bindkey '^P' up-history
+bindkey '^N' down-history
