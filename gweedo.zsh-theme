@@ -28,6 +28,7 @@ setopt prompt_subst
 # Load required modules
 #
 autoload -Uz vcs_info
+zmodload zsh/datetime # Provides $EPOCHSECONDS and the strftime builtin
 
 # Set vcs_info parameters
 #
@@ -58,16 +59,50 @@ folder_info() {
     echo "$FX[bold]$FG[028]%~%f$FX[no-bold]"
 }
 
+# Convert a duration in seconds into a compact human readable string
+# (e.g. 3725 -> "1h 2m 5s")
+#
+human_time() {
+    local total=$1 human=""
+    local days=$(( total / 86400 ))
+    local hours=$(( total / 3600 % 24 ))
+    local minutes=$(( total / 60 % 60 ))
+    local seconds=$(( total % 60 ))
+    (( days > 0 ))    && human+="${days}d "
+    (( hours > 0 ))   && human+="${hours}h "
+    (( minutes > 0 )) && human+="${minutes}m "
+    human+="${seconds}s"
+    echo "$human"
+}
+
+# Record when the current command starts executing
+#
+preexec() {
+    cmd_timestamp=$EPOCHSECONDS
+}
+
 # Output additional information about paths, repos and exec time
 #
 precmd() {
     vcs_info # Get version control info before we start outputting stuff
-    print -P "\n$(folder_info) $(repo_information) "
-}
 
-# Define prompts
-#
-PROMPT="%(?.%F{magenta}.%F{red})❯%f " # Display a red prompt char on failure
+    # Build the right-hand side: <time taken> @ <time command started>.
+    # Only shown once a command has actually been run.
+    local rprompt=""
+    if (( cmd_timestamp )); then
+        local elapsed=$(( EPOCHSECONDS - cmd_timestamp ))
+        rprompt="%F{8}$(human_time $elapsed) @ $(strftime '%H:%M:%S' $cmd_timestamp)%f"
+    fi
+    unset cmd_timestamp # Reset so a bare <Enter> doesn't repeat stale timing
+
+    # The folder/repo line is the first line of PROMPT so that RPROMPT, which
+    # zsh aligns to the first prompt line, lines up with the pwd output.
+    PROMPT="$(folder_info) $(repo_information)
+%(?.%F{magenta}.%F{red})❯%f " # Display a red prompt char on failure
+    RPROMPT="$rprompt"
+
+    print "" # Blank separator line above each prompt
+}
 
 # ------------------------------------------------------------------------------
 #
