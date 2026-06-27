@@ -97,7 +97,8 @@ precmd() {
 
     # The folder/repo line is the first line of PROMPT so that RPROMPT, which
     # zsh aligns to the first prompt line, lines up with the pwd output.
-    PROMPT="$(folder_info) $(repo_information)
+    PROMPT="%F{yellow}%n@%m%f
+$(folder_info) $(repo_information)
 %(?.%F{magenta}.%F{red})❯%f " # Display a red prompt char on failure
     RPROMPT="$rprompt"
 
